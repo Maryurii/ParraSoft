@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %} Jobs {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1 class="display-4">Jobs</h1>
+  <p class="lead">Activity job</p>
+  {% if jobs %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>job</th>
+        <th>Activity</th>
+        <th>Personal</th>
+        <th>Status</th>
+        <th>Project</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for job in jobs %}
+        <tr>
+          <td>{{ job.job }}</td>
+          <td>{{ job.activity }}</td>
+          <td>{{ job.personal }}</td>
+          <td>{{ job.status }}</td>
+          <td>{{ </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>No jobs available at the moment.</p>
+  {% endif %}
+  <a href="{% url 'home_app:index'%}" > back </a>
+</div>
+{% endblock %}

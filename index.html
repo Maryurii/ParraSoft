@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %} Index {% endblock %}
+
+
+{% block content %}
+	
+<div class="jumbotron">
+  <h1 class="display-4">Empresa ParraSoft</h1>
+  <p class="lead">Esta es una pagina capaz de recolectar el reporte del personal y sus actividades, asi como su desempeno en el area y/o actividad que les toco.</p>
+  <hr class="my-4">
+
+  <ul class="list-group">
+
+		<li class="list-group-item-dark"> <a href="{% url 'home_app:registeractivity' %}">Register Activity</a></li>
+		<li class="list-group-item-light"> <a href="{% url 'home_app:registerposition' %}">Register Position</a></li>
+		<li class="list-group-item-dark"> <a href="{% url 'home_app:registerperformance' %}">Register Performance</a></li>
+		<li class="list-group-item-light"> <a href="{% url 'home_app:registerpersonal' %}">Register Personal</a></li>
+		<li class="list-group-item-dark"> <a href="{% url 'home_app:registerstatus' %}">Register Status</a>  </li>
+		<li class="list-group-item-light"> <a href="#">Register Report</a>  </li>
+
+		<li class="list-group-item-dark"> <a href="{% url 'home_app:activities' %}">Activity</a>  </li>
+		<li class="list-group-item-light"> <a href="{% url 'home_app:positions' %}">Position</a>  </li>
+		<li class="list-group-item-dark"> <a href="{% url 'home_app:performance' %}">Performance</a>  </li>
+		<li class="list-group-item-light"> <a href="{% url 'home_app:personal' %}">Personal</a>  </li>
+		<li class="list-group-item-dark"> <a href="{% url 'home_app:status' %}">Status</a>  </li>
+		<li class="list-group-item-light"> <a href="{% url 'home_app:jobs' %}">Report</a>  </li>
+	</ul>
+
+  <hr class="my-4">
+  <p>Este sistema fue disenado por Maryuri Jacquelyne Chavez Duarte.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+
+{% endblock %}

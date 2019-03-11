@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} Status {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1 class="display-4">Status</h1>
+  <p class="lead">Activity Status</p>
+  {% if stats %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for stat in stats %}
+        <tr>
+          <td>{{ stat.status }}</td>
+          <td>{{ stat.description }}</td>
+          <td></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>No status available at the moment.</p>
+  {% endif %}
+  <a href="{% url 'home_app:index'%}" > back </a>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %} Reports {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1 class="display-4">Reports</h1>
+  <p class="lead">General Report</p>
+  <h3>Employee Summary Report</h3>
+  {% if desempeno_de_empleados %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Quantity Work done</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for employee_perfom in employee_perfoms %}
+        <tr>
+          <td>{{ employee_perfom.employee.name }}</td>
+          <td>{{ employee_perfom.count_jobs }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>No employee data found at the moment.</p>
+  {% endif %}
+  <hr class="my-4">
+  <h3>Employee Work Summary Report</h3>
+  {% if employees_work %}
+    {% for work in employees_work %}
+      <h6>{{ work.employee.name }}</h6>
+      
+      {% if jobs.jobs %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Activity</th>
+            <th>Project</th>
+            <td>Start Date</td>
+            <td>End Date</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in jobs.jobs %}
+            <tr>
+              <td>{{ job.activity }}</td>
+              <td>{{ job.project }}</td>
+              <td>{{ job.start_date }}</td>
+              <td>{{ job.end_date }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+        <p>No work data at the moment</p>
+      {% endif %}
+    {% endfor %}
+  {% else %}
+    <p>No work data for employees at the moment</p>
+  {% endif %}
+  <a href="{% url 'home_app:index'%}" > back </a>
+</div>
+{% endblock %}

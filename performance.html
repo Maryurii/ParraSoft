@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %} Performance {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1 class="display-4">Performance</h1>
+  <p class="lead">Level Performance</p>
+  {% if performs %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Performance</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for performance in performs %}
+        <tr>
+          <td>{{ performance.perform }}</td>
+          <td>{{ performance.description }}</td>
+          <td></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>No level of performance available at the moment.</p>
+  {% endif %}
+  <a href="{% url 'home_app:index'%}" > back </a>
+</div>
+{% endblock %}

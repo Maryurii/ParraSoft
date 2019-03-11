@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} Personal {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <h1 class="display-4">Personal</h1>
+  <p class="lead">Registered Personal</p>
+  {% if humans %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Performance</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for human in humans %}
+        <tr>
+          <td>{{ human.name }}</td>
+          <td>{{ human.age }}</td>
+          <td>{{ human.performance }}</td>
+          <td>{{ human.position }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>No personal registered at the moment.</p>
+  {% endif %}
+  <a href="{% url 'home_app:index'%}" > back </a>
+</div>
+{% endblock %}
